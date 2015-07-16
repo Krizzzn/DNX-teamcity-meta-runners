@@ -13,7 +13,7 @@
           <param name="script.content"><![CDATA[@echo off
 cd %teamcity.build.workingDir%
 SETLOCAL
-CALL packages\KoreBuild\build\dnvm use default -runtime %mr.Runtime% -arch %mr.Architecture%
+
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "Get-ChildItem %mr.SourceFolder% "bin" -Directory -rec -erroraction 'silentlycontinue' | Remove-Item -Recurse; exit $Lastexitcode"]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />

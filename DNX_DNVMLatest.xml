@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<meta-runner name="DNX - Install and configure DNX">
+<meta-runner name="DNX - Install and configure DNX (latest version)">
   <description>Installs the latest DNX runtime for ASP.NET 5 builds.</description>
   <settings>
     <parameters>
