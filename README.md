@@ -2,7 +2,7 @@
 
 ## installations
 
-Place xml files in %TEAMCITY%\config\projects\%Project%\pluginData\metaRunners
+Place xml files in %TEAMCITY%\config\projects\%Project%\pluginData\metaRunners (C:\ProgramData\JetBrains\TeamCity\config\projects\BaBuildServer\pluginData\metaRunners)
 
 ## prerequesites
 
