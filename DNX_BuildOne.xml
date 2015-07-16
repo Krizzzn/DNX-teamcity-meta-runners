@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta-runner name="DNX - DNU build (one project)">
+  <description>Builds one ASP.NET 5 project and publishes its artifacts.</description>
+  <settings>
+    <parameters>
+      <param name="mr.Configuration" value="Release" spec="text description='Build configuration (e.g. Debug or Release)' validationMode='not_empty' label='Build configuration:' display='normal'" />
+      <param name="mr.ProjectJson" value="" spec="text validationMode='not_empty' label='Path to project.json:' display='normal'" />
+      <param name="mr.Runtime" value="CLR" spec="text validationMode='not_empty' label='Runtime to build:' display='normal'" />
+      <param name="mr.Architecture" value="x86" spec="text validationMode='not_empty' label='Target architecture:' display='normal'" />
+    </parameters>
+    <build-runners>
+      <runner name="DNU build one project" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[@echo off
+cd %teamcity.build.workingDir%
+
+SETLOCAL
+CALL packages\KoreBuild\build\dnvm use default -runtime %mr.Runtime% -arch %mr.Architecture%
+CALL dnu build "%mr.ProjectJson%" --configuration %mr.Configuration%
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "Get-ChildItem (Split-Path %mr.SourceFolder%) *.nupkg -rec -erroraction 'silentlycontinue' | Where-Object {$_.FullName -match 'bin'} | Select-Object -Expand FullName | Foreach { Write-Host `#`#teamcity`[publishArtifacts `'$_`'`] }; exit $Lastexitcode"]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <requirements />
+  </settings>
+</meta-runner>
+
