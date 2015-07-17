@@ -20,9 +20,9 @@ SETLOCAL
 CALL packages\KoreBuild\build\dnvm use default -runtime %mr.Runtime% -arch %mr.Architecture%
 
 if /i %mr.wwwroot%==none (
-dnu publish "%mr.ProjectJson%" --configuration %mr.Configuration% --no-source --out "artifacts\%mr.ArtifactsName%"
+dnu publish "%mr.ProjectJson%" --configuration %mr.Configuration% --no-source --out "artifacts\%mr.ArtifactsName%" --runtime active
 ) else (
-dnu publish "%mr.ProjectJson%" --configuration %mr.Configuration% --wwwroot-out wwwroot --no-source --out "artifacts\%mr.ArtifactsName%"
+dnu publish "%mr.ProjectJson%" --configuration %mr.Configuration% --wwwroot-out wwwroot --no-source --out "artifacts\%mr.ArtifactsName%" --runtime active
 )
 
 @echo on
