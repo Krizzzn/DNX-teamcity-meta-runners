@@ -19,7 +19,6 @@ IF EXIST packages\KoreBuild goto run
 %teamcity.tool.nuget%\nuget.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre -Source https://www.myget.org/F/aspnetvnext/api/v2
 
 :run
-CALL packages\KoreBuild\build\dnvm upgrade -runtime %mr.Runtime% -arch %mr.Architecture%
 CALL packages\KoreBuild\build\dnvm install %mr.DNXVersion% -runtime %mr.Runtime% -arch %mr.Architecture%
 
 CALL packages\KoreBuild\build\dnvm alias default %mr.DNXVersion% -runtime %mr.Runtime% -arch %mr.Architecture%
