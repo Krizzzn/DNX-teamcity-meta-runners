@@ -18,7 +18,7 @@ cd %teamcity.build.workingDir%
 SETLOCAL
 CALL packages\KoreBuild\build\dnvm use default -runtime %mr.Runtime% -arch %mr.Architecture%
 
-dnu pack "%mr.ProjectJson%" --configuration %mr.Configuration% --out "artifacts\%mr.ArtifactsName%" --dependencies
+dnu pack "%mr.ProjectJson%" --configuration %mr.Configuration% --out "artifacts\%mr.ArtifactsName%"
 
 @echo on
 echo "##teamcity[publishArtifacts 'artifacts\%mr.ArtifactsName% => %mr.ArtifactsName%.zip']"]]></param>
