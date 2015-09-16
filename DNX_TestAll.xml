@@ -14,7 +14,7 @@
 cd %teamcity.build.workingDir%
 SETLOCAL
 CALL packages\KoreBuild\build\dnvm use default -runtime %mr.Runtime% -arch %mr.Architecture%
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "Get-ChildItem %mr.SourceFolder% project.json -rec -erroraction 'silentlycontinue' | Where-Object { $_.FullName -like '*test*' } | Select-Object -Expand DirectoryName | Foreach { cmd /C cd $_ `&`& dnx . test -teamcity }; exit $Lastexitcode"]]></param>
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "Get-ChildItem %mr.SourceFolder% project.json -rec -erroraction 'silentlycontinue' | Where-Object { $_.FullName -like '*test*' } | Select-Object -Expand DirectoryName | Foreach { cmd /C cd $_ `&`& dnx test -teamcity }; exit $Lastexitcode"]]></param>
           <param name="teamcity.step.mode" value="execute_if_failed" />
           <param name="use.custom.script" value="true" />
         </parameters>

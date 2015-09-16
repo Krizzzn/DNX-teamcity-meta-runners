@@ -16,7 +16,7 @@ cd %teamcity.build.workingDir%
 SETLOCAL
 CALL packages\KoreBuild\build\dnvm use default -runtime %mr.Runtime% -arch %mr.Architecture%
 cd "%mr.TestDirectory%"
-CALL dnx . test -teamcity]]></param>
+CALL dnx test -teamcity]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
