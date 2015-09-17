@@ -2,11 +2,11 @@
 
 ## installations
 
-Place xml files in %TEAMCITY%\config\projects\%Project%\pluginData\metaRunners (C:\ProgramData\JetBrains\TeamCity\config\projects\BaBuildServer\pluginData\metaRunners)
+Place xml files in `%TEAMCITY%\config\projects\%Project%\pluginData\metaRunners` (e.g. `C:\ProgramData\JetBrains\TeamCity\config\projects\BaBuildServer\pluginData\metaRunners`)
 
-## prerequesites
+## prerequisites
 
-If you're using the 'DNX - Install and configure DNX' meta runner, the Build Agent must feature the configuration property %teamcity.tool.nuget% 
+If you're using the 'DNX - Install and configure DNX' meta runner, the Build Agent must feature the configuration property `%teamcity.tool.nuget%`
 pointing to the directory that contains the nuget.exe.
 
 ## attribution
